@@ -63,7 +63,7 @@ class Desk:
             if tuple(dot[:-1]) in dots:
                 self.dots[i][2] = state
 
-    def gen_two_dots(self):
+    def choice_two_dots(self):
         while True:
             x_1, y_1 = self.choice_dot()
             if 1 < x_1 < 6 and 1 < y_1 < 6\
@@ -77,7 +77,7 @@ class Desk:
         return [(x_1, y_1), (x_2, y_2)]
 
     def gen_ship_three_dots(self):
-        dot_1, dot_2 = self.gen_two_dots()
+        dot_1, dot_2 = self.choice_two_dots()
         x_2, y_2 = dot_1
         x_1, y_1 = dot_2
         while True:
@@ -90,7 +90,7 @@ class Desk:
         self.ships.append(Ship(dots))
 
     def gen_ship_two_dots(self):
-        dots = self.gen_two_dots()
+        dots = self.choice_two_dots()
         self.set_dots_state(dots)
         self.ships.append(Ship(dots))
 
